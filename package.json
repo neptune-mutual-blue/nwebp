@@ -1,0 +1,41 @@
+{
+  "name": "nwebp",
+  "version": "1.0.0",
+  "main": "cli.js",
+  "description": "Neptune Mutual PNG to WebP Converter",
+  "repository": {
+    "url": "https://github.com/neptune-mutual-blue/nwebp",
+    "type": "git"
+  },
+  "author": {
+    "name": "Neptune Mutual",
+    "url": "https://neptunemutual.com"
+  },
+  "bin": {
+    "nwebp": "./cli.js"
+  },
+  "keywords": [
+    "webp",
+    "png",
+    "jpg",
+    "jpeg",
+    "image-conversion",
+    "image-converter",
+    "cli",
+    "npmtool"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "chalk": "4.1.2"
+  },
+  "engines": {
+    "node": ">=18.4.0"
+  },
+  "volta": {
+    "node": "18.4.0",
+    "yarn": "1.22.19"
+  }
+}
