@@ -8,7 +8,7 @@ const chalk = require('chalk')
 const processImage = async (source, deleteSource) => {
   const destination = `${source.split('.').shift()}.webp`
 
-  const command = `cwebp -q 80 ${source} -o ${destination}`
+  const command = `cwebp -q 80 '${source}' -o '${destination}'`
 
   return new Promise((resolve, reject) => {
     exec(command, async (error) => {
