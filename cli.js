@@ -5,10 +5,10 @@ const { getArgs } = require('./util/args')
 const { exec } = require('child_process')
 const chalk = require('chalk')
 
-const processImage = async (source, deleteSource) => {
+const processImage = async (source, deleteSource, quality) => {
   const destination = `${source.split('.').shift()}.webp`
 
-  const command = `cwebp -q 80 '${source}' -o '${destination}'`
+  const command = `cwebp -q ${quality} '${source}' -o '${destination}'`
 
   return new Promise((resolve, reject) => {
     exec(command, async (error) => {
@@ -49,7 +49,7 @@ const main = async () => {
   }
 
   const files = await getFileList(args)
-  const promises = files.map(x => processImage(x, args.deleteSource))
+  const promises = files.map(x => processImage(x, args.deleteSource, args.quality))
 
   await Promise.allSettled(promises)
 
