@@ -5,7 +5,8 @@ const PADDING = 64
 const optionFallback = {
   root: process.cwd(),
   recursive: true,
-  deleteSource: false
+  deleteSource: false,
+  quality: 80
 }
 
 const parseBool = async (x) => {
@@ -48,6 +49,25 @@ const options = {
     value: 'true|false',
     description: 'Deletes source files after conversion',
     parse: parseBool
+  },
+  quality: {
+    type: 'string',
+    short: 'q',
+    value: '0-100',
+    description: 'Quality of the converted image',
+    parse: async (x) => {
+      const value = parseInt(x, 10)
+
+      if (isNaN(value)) {
+        throw new Error(`Invalid quality: ${x}`)
+      }
+
+      if (value < 0 || value > 100) {
+        throw new Error('Quality must be between 0 and 100')
+      }
+
+      return value
+    }
   }
 }
 
